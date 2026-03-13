@@ -1,9 +1,16 @@
 // src/app/api/enroll/route.ts
 import { NextRequest } from 'next/server'
 import { ZodError } from 'zod'
-import { enrollmentSchema } from '@/lib/validations'
-import { ok, err, formatZodError, getIp, applyRateLimit, isSpam } from '@/lib/api'
-import { prisma } from '@/lib/prisma'
+import { enrollmentSchema } from '../../../lib/validations'
+import {
+  ok,
+  err,
+  formatZodError,
+  getIp,
+  applyRateLimit,
+  isSpam,
+} from '../../../lib/api'
+import { prisma } from '../../../lib/prisma'
 
 export async function POST(req: NextRequest) {
   // 1. Rate limit: max 10 requests per IP per 60s
