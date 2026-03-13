@@ -1,0 +1,74 @@
+[
+  {
+    "id": "wl_1772958185706_1j6mydf5j",
+    "firstName": "Test User",
+    "email": "test@example.com",
+    "interestArea": "AI",
+    "ipAddress": "::1",
+    "userAgent": "curl/8.5.0",
+    "source": null,
+    "status": "PENDING",
+    "createdAt": "2026-03-08T08:23:05.706Z",
+    "updatedAt": "2026-03-08T08:23:05.706Z"
+  },
+  {
+    "id": "wl_1772958232252_e35u9vnr9",
+    "firstName": "Jane Smith",
+    "email": "jane@example.com",
+    "interestArea": "CYBERSECURITY",
+    "ipAddress": "::1",
+    "userAgent": "curl/8.5.0",
+    "source": null,
+    "status": "PENDING",
+    "createdAt": "2026-03-08T08:23:52.252Z",
+    "updatedAt": "2026-03-08T08:23:52.252Z"
+  },
+  {
+    "id": "wl_1773129780400_x5hp0m90x",
+    "fullName": "John Doe",
+    "email": "john@example.com",
+    "interestArea": "SOFTWARE_ENGINEERING",
+    "ipAddress": "::1",
+    "userAgent": "curl/8.5.0",
+    "source": null,
+    "status": "PENDING",
+    "createdAt": "2026-03-10T08:03:00.400Z",
+    "updatedAt": "2026-03-10T08:03:00.400Z"
+  },
+  {
+    "id": "wl_1773130330918_6cntneybp",
+    "fullName": "Alice Johnson",
+    "email": "alice@example.com",
+    "interestArea": "CLOUD_COMPUTING",
+    "ipAddress": "::1",
+    "userAgent": "curl/8.5.0",
+    "source": null,
+    "status": "PENDING",
+    "createdAt": "2026-03-10T08:12:10.918Z",
+    "updatedAt": "2026-03-10T08:12:10.918Z"
+  },
+  {
+    "id": "wl_1773131312202_7hkwyp420",
+    "fullName": "Test User",
+    "email": "waitlist@test.com",
+    "interestArea": "AI",
+    "ipAddress": "::1",
+    "userAgent": "curl/8.5.0",
+    "source": null,
+    "status": "PENDING",
+    "createdAt": "2026-03-10T08:28:32.202Z",
+    "updatedAt": "2026-03-10T08:28:32.202Z"
+  },
+  {
+    "id": "wl_1773132291556_fj8d72u8g",
+    "fullName": "Test User",
+    "email": "test@test.com",
+    "interestArea": "CYBERSECURITY",
+    "ipAddress": "::1",
+    "userAgent": "curl/8.5.0",
+    "source": null,
+    "status": "PENDING",
+    "createdAt": "2026-03-10T08:44:51.556Z",
+    "updatedAt": "2026-03-10T08:44:51.556Z"
+  }
+]

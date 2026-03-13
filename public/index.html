@@ -1,0 +1,14 @@
+import { useEffect } from 'react'
+
+export default function Home() {
+  useEffect(() => {
+    // Redirect to the actual HTML file
+    window.location.href = '/index.html'
+  }, [])
+
+  return (
+    <div>
+      <p>Loading...</p>
+    </div>
+  )
+}
