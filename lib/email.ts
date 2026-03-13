@@ -38,8 +38,17 @@ const wrapper = (inner: string) => `
 
 // ─── ENROLLMENT: TEAM NOTIFICATION ────────────────────────────────────────────
 export async function sendEnrollmentNotification(
-  data: EnrollmentInput & { id: string; programTitle: string }
+  data: EnrollmentInput & {
+    id: string
+    programTitle: string
+    fullName?: string
+    phone?: string
+    currentRole?: string
+    experienceLevel?: string
+    motivation?: string
+  }
 ) {
+  const fullName = data.fullName ?? `${data.firstName} ${data.lastName}`
   const html = wrapper(`
     ${brandHeader('🎓 New Enrollment Application')}
     <div style="padding:28px 32px;background:#fff">
@@ -48,14 +57,14 @@ export async function sendEnrollmentNotification(
       </p>
       <table style="width:100%;border-collapse:collapse;border-top:2px solid #042E4D">
         ${row('Reference', `#${data.id.slice(-8).toUpperCase()}`)}
-        ${row('Full Name', data.fullName)}
+        ${row('Full Name', fullName)}
         ${row('Email', data.email)}
         ${row('Phone', data.phone ?? 'Not provided')}
         ${row('Country', data.country)}
-        ${row('Current Role', data.currentRole)}
-        ${row('Experience', data.experienceLevel)}
+        ${row('Current Role', data.currentRole ?? 'Not provided')}
+        ${row('Experience', data.experienceLevel ?? 'Not provided')}
         ${row('Program', data.programTitle)}
-        ${row('Motivation', `<em>${data.motivation}</em>`)}
+        ${row('Motivation', `<em>${data.motivation ?? 'Not provided'}</em>`)}
       </table>
       <div style="margin-top:24px;padding:16px;background:#f0f9ff;border-radius:8px;border-left:4px solid #0082D4">
         <p style="font-family:Arial,sans-serif;font-size:12px;color:#0082D4;font-weight:700;margin:0 0 4px">ACTION REQUIRED</p>
@@ -68,10 +77,10 @@ export async function sendEnrollmentNotification(
     ${brandFooter()}
   `)
 
-  return resend.emails.send({
+      return resend.emails.send({
     from: FROM,
     to: [TEAM],
-    subject: `[Enrollment] ${data.fullName} — ${data.programTitle}`,
+    subject: `[Enrollment] ${fullName} — ${data.programTitle}`,
     html,
     reply_to: data.email,
   })
@@ -79,13 +88,19 @@ export async function sendEnrollmentNotification(
 
 // ─── ENROLLMENT: STUDENT CONFIRMATION ────────────────────────────────────────
 export async function sendEnrollmentConfirmation(
-  data: EnrollmentInput & { id: string; programTitle: string; cohortDate?: string }
+  data: EnrollmentInput & {
+    id: string
+    programTitle: string
+    cohortDate?: string
+    fullName?: string
+  }
 ) {
+  const fullName = data.fullName ?? `${data.firstName} ${data.lastName}`
   const html = wrapper(`
     ${brandHeader('✅ Application Received!')}
     <div style="padding:28px 32px;background:#fff">
       <p style="font-family:Arial,sans-serif;font-size:15px;color:#374151;margin:0 0 16px">
-        Hi <strong>${data.fullName}</strong>,
+        Hi <strong>${fullName}</strong>,
       </p>
       <p style="font-family:Arial,sans-serif;font-size:14px;color:#374151;margin:0 0 16px;line-height:1.7">
         Thank you for applying to <strong>${data.programTitle}</strong> at Tween Learning.
